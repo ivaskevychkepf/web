@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Колекція марок — script.js</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Тестова сторінка для <code>script.js</code> — Колекція марок</h1>
+
+  <div class="panel">
+    <div class="controls">
+      <button id="btnDisplay">Відобразити колекцію</button>
+      <button id="btnAddPrompt">Додати марку (prompt)</button>
+      <button id="btnAddForm">Додати марку (з форми)</button>
+      <button id="btnMarkFirst">Позначити 1-шу як обміняну</button>
+      <button id="btnSort">Відсортувати за роком</button>
+      <button id="btnFilter">Показати не обміняні</button>
+      <button id="btnAvg">Середній рік</button>
+      <button id="btnClear">Очистити лог</button>
+    </div>
+
+    <details>
+      <summary>Форма додавання марки</summary>
+      <form id="addForm" style="margin-top:8px">
+        <label>Країна <input name="country" required value="Україна" /></label>
+        <label>Рік <input name="year" type="number" required value="2000" /></label>
+        <label>Номінал <input name="value" type="number" step="0.1" value="1.5" /></label>
+        <label>Тема <input name="theme" value="Тема" /></label>
+        <label>Обміняна
+          <select name="isExchanged">
+            <option value="false" selected>Ні</option>
+            <option value="true">Так</option>
+          </select>
+        </label>
+        <button type="submit">Додати</button>
+      </form>
+    </details>
+
+    <div class="log-container">
+      <strong>Лог (вивід):</strong>
+      <div id="log" class="log"></div>
+    </div>
+  </div>
+
+  <!-- Підключення зовнішнього JS -->
+  <script src="script.js"></script>
+
+  <!-- Перехоплення console.log для виводу на сторінці -->
+  <script>
+    (function() {
+      const logEl = document.getElementById('log');
+      const originalLog = console.log;
+      console.log = function(...args) {
+        originalLog.apply(console, args);
+        const text = args.map(a => {
+          try { return typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a); }
+          catch (e) { return String(a); }
+        }).join(' ');
+        logEl.textContent += text + '\n';
+        logEl.scrollTop = logEl.scrollHeight;
+      };
+
+      document.getElementById('btnDisplay').addEventListener('click', () => {
+        console.log('--- Вивід колекції ---');
+        if (typeof displayCollection === 'function') displayCollection();
+      });
+
+      document.getElementById('btnAddPrompt').addEventListener('click', () => {
+        const country = prompt('Країна', 'Україна');
+        if (!country) return;
+        const year = Number(prompt('Рік', '2000')) || 2000;
+        const value = Number(prompt('Номінал', '1.5')) || 1.5;
+        const theme = prompt('Тема', 'Тема') || 'Тема';
+        const isExchanged = confirm('Обміняна? (OK = Так)');
+        const newStamp = {
+          country, year, value, theme, isExchanged,
+          stampInfo() {
+            console.log(`Країна: ${this.country}, Рік: ${this.year}, Номінал: ${this.value} грн, Тема: ${this.theme}, Обміняна: ${this.isExchanged ? 'Так' : 'Ні'}`);
+          },
+          markAsExchanged() { this.isExchanged = true; }
+        };
+        if (Array.isArray(window.collection)) {
+          collection.push(newStamp);
+          console.log('Додано марку через prompt:');
+          newStamp.stampInfo();
+        }
+      });
+
+      document.getElementById('addForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const newStamp = {
+          country: fd.get('country'),
+          year: Number(fd.get('year')),
+          value: Number(fd.get('value')),
+          theme: fd.get('theme'),
+          isExchanged: fd.get('isExchanged') === 'true',
+          stampInfo() {
+            console.log(`Країна: ${this.country}, Рік: ${this.year}, Номінал: ${this.value} грн, Тема: ${this.theme}, Обміняна: ${this.isExchanged ? 'Так' : 'Ні'}`);
+          },
+          markAsExchanged() { this.isExchanged = true; }
+        };
+        collection.push(newStamp);
+        console.log('Додано марку через форму:');
+        newStamp.stampInfo();
+      });
+
+      document.getElementById('btnMarkFirst').addEventListener('click', () => {
+        if (collection[0]) {
+          collection[0].markAsExchanged();
+          console.log('Перша марка позначена як обміняна:');
+          collection[0].stampInfo();
+        }
+      });
+
+      document.getElementById('btnSort').addEventListener('click', () => {
+        collection.sort((a, b) => a.year - b.year);
+        console.log('Колекція відсортована за роком:');
+        displayCollection();
+      });
+
+      document.getElementById('btnFilter').addEventListener('click', () => {
+        const notExchanged = collection.filter(s => !s.isExchanged);
+        console.log('Марки, які ще не обміняні:');
+        notExchanged.forEach(s => s.stampInfo());
+      });
+
+      document.getElementById('btnAvg').addEventListener('click', () => {
+        console.log('Середній рік випуску:', calculateAverageYear());
+      });
+
+      document.getElementById('btnClear').addEventListener('click', () => {
+        logEl.textContent = '';
+      });
+
+      console.log('Сторінка готова. Натисни "Відобразити колекцію", щоб почати.');
+    })();
+  </script>
+</body>
+</html>
