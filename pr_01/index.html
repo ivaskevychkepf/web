@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <title>Практична робота — Методи масивів</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Практична робота: Методи масивів (7–9 балів)</h1>
+
+  <div class="panel">
+    <div class="controls">
+      <button id="btnAvgSalary">Середня зарплата</button>
+      <button id="btnExperienced">Найдосвідченіший працівник</button>
+      <button id="btnUnread">Непрочитані книги</button>
+      <button id="btnAuthor">Книги Толкіна</button>
+      <button id="btnTop">Топові книги</button>
+      <button id="btnClear">Очистити лог</button>
+    </div>
+
+    <div class="log-container">
+      <strong>Результати:</strong>
+      <div id="log" class="log"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const logEl = document.getElementById('log');
+    const originalLog = console.log;
+    console.log = function(...args) {
+      originalLog(...args);
+      const text = args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' ');
+      logEl.textContent += text + '\n';
+      logEl.scrollTop = logEl.scrollHeight;
+    };
+
+    document.getElementById('btnAvgSalary').addEventListener('click', () => {
+      console.log('Середня зарплата:', getAverageSalary());
+    });
+
+    document.getElementById('btnExperienced').addEventListener('click', () => {
+      console.log('Найдосвідченіший працівник:', findMostExperiencedEmployee());
+    });
+
+    document.getElementById('btnUnread').addEventListener('click', () => {
+      console.log('Непрочитані книги:', getUnreadBooks());
+    });
+
+    document.getElementById('btnAuthor').addEventListener('click', () => {
+      console.log('Книги Толкіна:', getBooksByAuthor("Дж. Р. Р. Толкін"));
+    });
+
+    document.getElementById('btnTop').addEventListener('click', () => {
+      console.log('Топові книги:', getTopRatedBooks());
+    });
+
+    document.getElementById('btnClear').addEventListener('click', () => logEl.textContent = '');
+  </script>
+</body>
+</html>
