@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.task {
+    margin-bottom: 40px;
+    padding: 25px;
+    border: 3px solid #667eea;
+    border-radius: 10px;
+    background: #f8f9ff;
+}
+
+.task h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.task h3 {
+    color: #764ba2;
+    margin: 20px 0 10px 0;
+    font-size: 1.1em;
+}
+
+/* Годинники */
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#clock1, #clock2 {
+    width: 300px;
+    padding: 20px;
+    font-size: 2em;
+    text-align: center;
+    border: 3px solid #667eea;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 3px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.countdown {
+    font-size: 1.1em;
+    color: #e74c3c;
+    font-weight: bold;
+    padding: 10px;
+    background: #ffe5e5;
+    border-radius: 5px;
+}
+
+#countdown {
+    font-size: 1.3em;
+    color: #c0392b;
+}
+
+/* Друкарська машинка */
+.typewriter-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.typewriter-output {
+    margin-top: 20px;
+    padding: 20px;
+    min-height: 60px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    font-size: 1.2em;
+    line-height: 1.6;
+    border-left: 4px solid #667eea;
+}
+
+.typewriter-output::after {
+    content: '|';
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+.typewriter-output.finished::after {
+    content: '';
+    animation: none;
+}

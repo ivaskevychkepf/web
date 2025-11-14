@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота №2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Практична робота №2</h1>
+        
+        <!-- Завдання 1: Годинник з нулями -->
+        <section class="task">
+            <h2>Завдання 1: Годинник з нулями</h2>
+            <div class="clock-container">
+                <input type="text" id="clock1" readonly>
+            </div>
+        </section>
+
+        <!-- Завдання 2.2: Годинник з автозакриттям -->
+        <section class="task">
+            <h2>Завдання 2.2: Годинник (оновлення кожні 5 сек, закриття через 30 сек)</h2>
+            <div class="clock-container">
+                <input type="text" id="clock2" readonly>
+                <div class="countdown">Сторінка закриється через: <span id="countdown">30</span> секунд</div>
+            </div>
+        </section>
+
+        <!-- Завдання 3: Ефект друкарської машинки -->
+        <section class="task">
+            <h2>Завдання 3: Ефект друкарської машинки</h2>
+            
+            <div class="typewriter-section">
+                <h3>Варіант А: setInterval()</h3>
+                <textarea id="userText1" placeholder="Введіть текст для друку..." rows="3"></textarea>
+                <button id="startInterval">Запустити (setInterval)</button>
+                <div class="typewriter-output" id="outputInterval"></div>
+            </div>
+
+            <div class="typewriter-section">
+                <h3>Варіант Б: setTimeout()</h3>
+                <textarea id="userText2" placeholder="Введіть текст для друку..." rows="3"></textarea>
+                <button id="startTimeout">Запустити (setTimeout)</button>
+                <div class="typewriter-output" id="outputTimeout"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
