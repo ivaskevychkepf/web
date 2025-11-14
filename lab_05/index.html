@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторна робота №7</h1>
+        
+        <!-- Завдання 1: Конвертер температур -->
+        <section class="task">
+            <h2>Завдання 1: Конвертер температур</h2>
+            <div class="temperature-converter">
+                <div class="input-group">
+                    <label for="fahrenheit">Температура за Фаренгейтом:</label>
+                    <input type="number" id="fahrenheit" placeholder="Введіть температуру">
+                </div>
+                <div class="input-group">
+                    <label for="celsius">Температура за Цельсієм:</label>
+                    <input type="number" id="celsius" placeholder="Введіть температуру">
+                </div>
+            </div>
+        </section>
+
+        <!-- Завдання 2: Таблиця множення -->
+        <section class="task">
+            <h2>Завдання 2: Таблиця множення</h2>
+            <div class="multiplication-game">
+                <div class="score">Рахунок: <span id="score">0</span></div>
+                <button id="nextTask">Наступне завдання</button>
+                <div class="question" id="question">Натисніть "Наступне завдання"</div>
+                <input type="number" id="answer" placeholder="Введіть відповідь">
+                <button id="checkAnswer">Перевірити</button>
+                <div class="result" id="result"></div>
+            </div>
+        </section>
+
+        <!-- Завдання 3: Таблиця множення з радіокнопками -->
+        <section class="task">
+            <h2>Завдання 3: Таблиця множення (радіокнопки)</h2>
+            <div class="multiplication-radio">
+                <div class="score">Рахунок: <span id="scoreRadio">0</span></div>
+                <button id="nextTaskRadio">Наступне завдання</button>
+                <div class="question" id="questionRadio">Натисніть "Наступне завдання"</div>
+                <div class="radio-options" id="radioOptions"></div>
+                <div class="result" id="resultRadio"></div>
+            </div>
+        </section>
+
+        <!-- Завдання 4: Ротатор фотографій -->
+        <section class="task">
+            <h2>Завдання 4: Галерея фруктів</h2>
+            <div id="rotator"></div>
+        </section>
+
+        <!-- Завдання 5: CAPTCHA -->
+        <section class="task">
+            <h2>Завдання 5: CAPTCHA</h2>
+            <div class="captcha-container">
+                <div id="captchaDisplay"></div>
+                <input type="text" id="captchaInput" placeholder="Введіть число">
+                <button id="checkCaptcha">Перевірити</button>
+                <button id="refreshCaptcha">Оновити</button>
+                <div class="result" id="captchaResult"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

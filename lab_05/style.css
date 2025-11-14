@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.task {
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.task h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+/* Завдання 1: Конвертер */
+.temperature-converter {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Завдання 2 і 3: Таблиця множення */
+.multiplication-game,
+.multiplication-radio {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.score {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.question {
+    font-size: 1.3em;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+input[type="number"],
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.result {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.result.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.result.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Радіокнопки */
+.radio-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-option {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.radio-option:hover {
+    background-color: #f0f0f0;
+}
+
+.radio-option input {
+    margin-right: 10px;
+}
+
+.radio-option.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Завдання 4: Ротатор */
+#rotator {
+    text-align: center;
+}
+
+.photo-rotator {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rotator-counter {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.rotator-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.rotator-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.rotator-navigation a {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.rotator-navigation a:hover {
+    background-color: #2980b9;
+}
+
+.rotator-navigation a.hidden {
+    visibility: hidden;
+}
+
+.rotator-info {
+    margin-top: 15px;
+}
+
+.rotator-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.rotator-description {
+    color: #555;
+}
+
+/* Завдання 5: CAPTCHA */
+.captcha-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#captchaDisplay {
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.captcha-digit {
+    display: inline-block;
+    width: 40px;
+    height: 60px;
+    position: relative;
+    margin: 0 5px;
+}
+
+.captcha-pixel {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #2c3e50;
+    border-radius: 2px;
+}
+
+.captcha-controls {
+    display: flex;
+    gap: 10px;
+}
