@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №3 - Робота з Date</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Лабораторна робота №3</h1>
+        <p class="subtitle">Робота з датою та часом у JavaScript</p>
+
+        <!-- Теоретична частина -->
+        <section class="task">
+            <h2>Теоретична частина</h2>
+            
+            <div class="theory-block">
+                <h3>1. Різниця між датами (до Нового року)</h3>
+                <button id="calcNewYear">Обчислити</button>
+                <div class="output" id="newYearOutput"></div>
+            </div>
+
+            <div class="theory-block">
+                <h3>2. Дата у локальному форматі</h3>
+                <button id="showLocalDate">Показати дату</button>
+                <div class="output" id="localDateOutput"></div>
+            </div>
+
+            <div class="theory-block">
+                <h3>3. П'ятниці 13-го у році</h3>
+                <input type="number" id="yearInput" placeholder="Введіть рік (наприклад, 2025)" value="2025">
+                <button id="findFriday13">Знайти п'ятниці 13-го</button>
+                <div class="output" id="friday13Output"></div>
+            </div>
+        </section>
+
+        <!-- Індивідуальні завдання -->
+        <section class="task">
+            <h2>Індивідуальні завдання</h2>
+
+            <!-- Завдання 1 -->
+            <div class="individual-task">
+                <h3>Завдання 1: Створити дату 20 лютого 2021, 3:12 ранку</h3>
+                <button id="task1">Показати дату</button>
+                <div class="output" id="task1Output"></div>
+            </div>
+
+            <!-- Завдання 2 -->
+            <div class="individual-task">
+                <h3>Завдання 2: Функція getWeekDay(date)</h3>
+                <input type="date" id="task2Input" value="2025-11-14">
+                <button id="task2">Отримати день тижня</button>
+                <div class="output" id="task2Output"></div>
+            </div>
+
+            <!-- Завдання 3 -->
+            <div class="individual-task">
+                <h3>Завдання 3: Функція getLastDayOfMonth(year, month)</h3>
+                <div class="input-row">
+                    <input type="number" id="task3Year" placeholder="Рік" value="2025">
+                    <input type="number" id="task3Month" placeholder="Місяць (0-11)" value="1" min="0" max="11">
+                </div>
+                <button id="task3">Останній день місяця</button>
+                <div class="output" id="task3Output"></div>
+            </div>
+
+            <!-- Завдання 4 -->
+            <div class="individual-task">
+                <h3>Завдання 4: Функція getSecondsToTomorrow()</h3>
+                <button id="task4">Секунд до завтра</button>
+                <div class="output" id="task4Output"></div>
+            </div>
+
+            <!-- Завдання 5 -->
+            <div class="individual-task">
+                <h3>Завдання 5: Функція formatDate(date)</h3>
+                <p class="hint">Тестування з різними датами:</p>
+                <button id="task5Now">Прямо зараз</button>
+                <button id="task5Sec">30 секунд назад</button>
+                <button id="task5Min">5 хвилин назад</button>
+                <button id="task5Old">Старша дата</button>
+                <div class="output" id="task5Output"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
