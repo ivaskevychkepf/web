@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Генератор - Варіант 8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 CSS Генератор - Варіант 8</h1>
+
+        <!-- Border Radius Section -->
+        <div class="section">
+            <h2>Border Radius (Заокруглення)</h2>
+            <div class="radius-grid">
+                <div class="control-group">
+                    <label>Верхній лівий кут:</label>
+                    <div class="slider-container">
+                        <input type="range" id="rtl" min="0" max="100" value="0" oninput="generate()">
+                        <input type="text" id="ttl" value="0" readonly>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Верхній правий кут:</label>
+                    <div class="slider-container">
+                        <input type="range" id="rtr" min="0" max="100" value="0" oninput="generate()">
+                        <input type="text" id="ttr" value="0" readonly>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Нижній правий кут:</label>
+                    <div class="slider-container">
+                        <input type="range" id="rbr" min="0" max="100" value="0" oninput="generate()">
+                        <input type="text" id="tbr" value="0" readonly>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Нижній лівий кут:</label>
+                    <div class="slider-container">
+                        <input type="range" id="rbl" min="0" max="100" value="0" oninput="generate()">
+                        <input type="text" id="tbl" value="0" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Font Style Section -->
+        <div class="section">
+            <h2>Font Style (Стиль шрифту)</h2>
+            <div class="control-group">
+                <label>Оберіть стиль:</label>
+                <select id="fontStyle" onchange="generate()">
+                    <option value="normal">Normal</option>
+                    <option value="italic">Italic</option>
+                    <option value="oblique">Oblique</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Letter Spacing Section -->
+        <div class="section">
+            <h2>Letter Spacing (Відстань між літерами)</h2>
+            <div class="control-group">
+                <label>Відстань (px):</label>
+                <div class="slider-container">
+                    <input type="range" id="letterSpacing" min="-5" max="20" value="0" oninput="generate()">
+                    <input type="text" id="letterSpacingValue" value="0" readonly>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="section preview-section">
+            <h2>Перегляд</h2>
+            <div id="block">CSS</div>
+        </div>
+
+        <!-- CSS Code Output -->
+        <div class="section">
+            <h2>Згенерований CSS код</h2>
+            <textarea id="cssOutput" readonly></textarea>
+            <button class="copy-btn" onclick="copyCss()">📋 Скопіювати CSS код</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
