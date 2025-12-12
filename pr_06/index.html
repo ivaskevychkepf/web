@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автомобільні Запчастини - Магазин</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>🚗 AutoParts Store</h1>
+                <div class="cart-icon-wrapper">
+                    <div class="cart-icon" onclick="openCart()">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Каталог товарів</h2>
+        <div class="products-grid" id="productsGrid">
+            <!-- Товари будуть додані через JavaScript -->
+        </div>
+    </main>
+
+    <!-- Модальне вікно для вказання кількості -->
+    <div id="quantityModal" class="modal">
+        <div class="modal-content">
+            <h3>Вкажіть кількість:</h3>
+            <input type="number" id="quantityInput" min="1" value="1">
+            <button onclick="addToCart()">Додати до корзини</button>
+            <button onclick="closeModal('quantityModal')">Скасувати</button>
+        </div>
+    </div>
+
+    <!-- Модальне вікно підтвердження -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3>Товар додано</h3>
+            <button onclick="goToCart()">Перейти у корзину</button>
+            <button onclick="closeModal('confirmModal')">Повернутись до покупок</button>
+        </div>
+    </div>
+
+    <!-- Модальне вікно порожньої корзини -->
+    <div id="emptyCartModal" class="modal">
+        <div class="modal-content">
+            <h3>Корзина пуста</h3>
+            <button onclick="closeModal('emptyCartModal')">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
