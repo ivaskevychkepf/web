@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API - Завдання 2-3</title>
+    <link rel="stylesheet" href="promise.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 JavaScript Promise API</h1>
+        
+        <!-- Завдання 2 -->
+        <div class="task-section">
+            <h2>Завдання 2: Перевірка числа</h2>
+            <p class="description">Введіть число для перевірки (більше 10 чи ні)</p>
+            <div class="input-group">
+                <input type="number" id="numberInput" placeholder="Введіть число">
+                <button id="checkBtn">Перевірити</button>
+            </div>
+        </div>
+        
+        <!-- Завдання 3 -->
+        <div class="task-section">
+            <h2>Завдання 3: Випадкове число</h2>
+            <p class="description">Отримайте випадкове число від 1 до 100 через 1-3 секунди</p>
+            <button id="randomBtn">Згенерувати випадкове число</button>
+        </div>
+        
+        <!-- Лоадер (Завдання 0) -->
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+            <p>Завантаження...</p>
+        </div>
+        
+        <!-- Результат -->
+        <div id="result" class="result"></div>
+    </div>
+    
+    <script src="promise.js"></script>
+</body>
+</html>
